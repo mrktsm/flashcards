@@ -6,6 +6,20 @@ This web app: **Flashcards is an interactive learning app built with React. It a
 
 Time spent: **1.5** hours spent in total
 
+## Video Walkthrough
+
+Here's a walkthrough of implemented required features:
+
+<img src='https://github.com/user-attachments/assets/9432c8db-80a2-4440-b330-cd2ba9b2d80f' title='Video Walkthrough' width='100%' alt='Video Walkthrough' />
+
+
+<!-- Replace this with whatever GIF tool you used! -->
+GIF created with [ezgif.com](https://ezgif.com/)
+<!-- Recommended tools:
+[Kap](https://getkap.co/) for macOS
+[ScreenToGif](https://www.screentogif.com/) for Windows
+[peek](https://github.com/phw/peek) for Linux. -->
+
 ## Required Features
 
 The following **required** functionality is completed:
@@ -24,19 +38,6 @@ The following **additional** features are implemented:
 
 * [x] Added a counter that tracks the number of cards viewed by the user.
 
-## Video Walkthrough
-
-Here's a walkthrough of implemented required features:
-
-<img src='https://github.com/user-attachments/assets/9432c8db-80a2-4440-b330-cd2ba9b2d80f' title='Video Walkthrough' width='100%' alt='Video Walkthrough' />
-
-
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with [ezgif.com](https://ezgif.com/)
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
 
