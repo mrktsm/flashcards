@@ -40,7 +40,7 @@ GIF created with [ezgif.com](https://ezgif.com/)
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+- CSS Transitions: It was tricky setting up smooth transitions for the cards flipping over, especially ensuring it looked good across different screen sizes.
 
 ## License
 
