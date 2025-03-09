@@ -37,6 +37,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 * [x] Added a counter that tracks the number of cards viewed by the user.
+* [x] Created a smooth animation for card transitions, making it visually appealing when switching between cards.
 
 
 ## Notes
