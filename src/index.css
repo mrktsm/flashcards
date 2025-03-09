@@ -1,0 +1,256 @@
+/* Typography and visual enhancements with lighter theme */
+:root {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Light theme by default */
+  color: #2d3748;
+  background-color: #f0f4f8;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout fixes to prevent cards from covering buttons */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-container {
+  margin-bottom: 80px; /* Create space for buttons */
+  position: relative;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  z-index: 10; /* Ensure buttons are above cards */
+}
+
+/* Enhanced buttons with lighter colors */
+button {
+  border-radius: 50px;
+  border: 2px solid transparent;
+  padding: 0.7em 1.4em;
+  font-size: 1.1em;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: #fff;
+  color: #4f46e5;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+}
+
+button:hover {
+  border-color: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.2);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.1);
+}
+
+button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Enhanced flashcards with fresh, light colors */
+.flip-card {
+  width: 600px;
+  height: 400px;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 40px;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.flip-card-front {
+  background: linear-gradient(135deg, #c7d2fe, #818cf8);
+  color: #1e293b;
+}
+
+.flip-card-back {
+  background: linear-gradient(135deg, #fde68a, #fbbf24);
+  color: #1e293b;
+  transform: rotateY(180deg);
+}
+
+/* Slide Animation - Enhanced with smoother timing */
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.slide-left {
+  animation: slideOutLeft 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+    slideLeft 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+
+.slide-right {
+  animation: slideOutRight 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+    slideRight 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+
+/* Adjust body styles to work with our new layout */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f4f8;
+}
+
+/* Make sure the root element takes full width/height */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card counter styling */
+.card-counter {
+  font-size: 1.1rem;
+  color: #6b7280;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background-color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Flip button specific styling */
+.flip-button {
+  min-width: 100px;
+  background-color: #4f46e5;
+  color: white;
+}
+
+.flip-button:hover {
+  background-color: #4338ca;
+  border-color: #4338ca;
+}
+
+/* Dark mode adjustments (in case user has system preference set to dark) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #e2e8f0;
+    background-color: #1e293b;
+  }
+
+  body {
+    background-color: #1e293b;
+  }
+
+  button {
+    background-color: #334155;
+    color: #c7d2fe;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+  }
+
+  button:hover {
+    border-color: #818cf8;
+  }
+
+  .card-counter {
+    color: #cbd5e1;
+    background-color: #334155;
+  }
+}
