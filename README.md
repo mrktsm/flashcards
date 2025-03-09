@@ -41,6 +41,7 @@ GIF created with [ezgif.com](https://ezgif.com/)
 ## Notes
 
 - CSS Transitions: It was tricky setting up smooth transitions for the cards flipping over, especially ensuring it looked good across different screen sizes.
+- State Management: Managing state for card visibility and ensuring everything updated correctly was a challenge but a good learning experience.
 
 ## License
 
