@@ -22,7 +22,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [x] List anything else that you added to improve the site's functionality!
+* [x] Added a counter that tracks the number of cards viewed by the user.
 
 ## Video Walkthrough
 
