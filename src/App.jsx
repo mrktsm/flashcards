@@ -106,7 +106,9 @@ function App() {
       clearTimeout(feedbackTimeoutRef.current);
     }
 
-    if (value.toLowerCase() === cards[currentCardIndex].back.toLowerCase()) {
+    if (
+      value.toLowerCase() === shuffledCards[currentCardIndex].back.toLowerCase()
+    ) {
       setFeedback({ message: "Correct answer!", type: "success" });
       setIsFlipped(true);
     } else {
