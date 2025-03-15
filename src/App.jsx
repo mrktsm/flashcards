@@ -4,44 +4,46 @@ import { useState, useEffect } from "react";
 
 const cards = [
   {
-    front: "What is React?",
-    back: "React is a JavaScript library for building user interfaces, developed by Facebook. It allows for the creation of reusable UI components and efficiently updates the UI with a virtual DOM.",
+    front: "Data structure that follows First-In-First-Out (FIFO) order.",
+    back: "Queue",
   },
   {
-    front: "What is JSX in React?",
-    back: "JSX (JavaScript XML) is a syntax extension for JavaScript that looks similar to HTML. It is used in React to describe what the UI should look like. JSX is eventually transpiled into JavaScript by tools like Babel.",
+    front: "Data structure that follows Last-In-First-Out (LIFO) order.",
+    back: "Stack",
   },
   {
-    front: "What are components in React?",
-    back: "Components are the building blocks of a React application. They can be either functional or class-based, and they encapsulate UI logic and rendering. Components can be reused and nested.",
+    front: "Data structure that stores key-value pairs.",
+    back: "HashMap",
   },
   {
-    front: "What is state in React?",
-    back: "State is an object that holds data that can change over time. It is used to control the behavior and rendering of a component. React updates the UI whenever the state changes.",
+    front: "A tree structure where each node has at most two children.",
+    back: "Binary Tree",
   },
   {
-    front: "What are props in React?",
-    back: "Props (short for properties) are read-only data passed from a parent component to a child component. They allow the child component to receive data or functions from its parent and render accordingly.",
+    front: "A tree-based data structure used to maintain a priority.",
+    back: "Heap",
   },
   {
-    front: "What does the useState hook do in React?",
-    back: "The useState hook is used in functional components to add state. It returns an array with two values: the current state and a function to update it.",
+    front: "A collection of nodes connected by edges.",
+    back: "Graph",
   },
   {
-    front: "What does the useEffect hook do in React?",
-    back: "The useEffect hook is used to perform side effects in functional components, such as fetching data, updating the DOM, or subscribing to external events. It runs after the component renders.",
+    front: "A linear data structure that allows operations from both ends.",
+    back: "Deque",
   },
   {
-    front: "What are the lifecycle methods in a React class component?",
-    back: "React class components have lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount that are used to execute code at specific points during the component’s life.",
+    front:
+      "A data structure that stores elements in key-value pairs, typically unordered.",
+    back: "Dictionary",
   },
   {
-    front: "What is the virtual DOM in React?",
-    back: "The virtual DOM is a lightweight copy of the real DOM. React uses it to optimize rendering. When a component’s state changes, React updates the virtual DOM first and then compares it with the real DOM, updating only the changed parts.",
+    front: "A tree-like structure used for storing strings.",
+    back: "Trie",
   },
   {
-    front: "What is React Router?",
-    back: "React Router is a library used for handling routing in a React application. It allows you to navigate between different views or pages in a single-page application without reloading the page.",
+    front:
+      "A dynamic data structure that stores elements in nodes, each pointing to the next.",
+    back: "Linked List",
   },
 ];
 
@@ -50,6 +52,7 @@ function App() {
   const [animationClass, setAnimationClass] = useState("");
   const [isFlipped, setIsFlipped] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [value, setValue] = useState("");
 
   useEffect(() => {
     if (animationClass) {
@@ -97,6 +100,12 @@ function App() {
         />
       </div>
       <div className="button-container">
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+        <button>Submit</button>
         <button
           onClick={() => changeCard("prev")}
           disabled={isAnimating}
