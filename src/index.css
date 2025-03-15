@@ -27,7 +27,7 @@
 }
 
 .card-container {
-  margin-bottom: 80px; /* Create space for buttons */
+  margin-bottom: 20px; /* Create space for buttons */
   position: relative;
 }
 
@@ -37,6 +37,7 @@
   gap: 20px;
   position: relative;
   z-index: 10; /* Ensure buttons are above cards */
+  margin-bottom: 50px;
 }
 
 /* Enhanced buttons with lighter colors */
@@ -303,5 +304,62 @@ body {
   100% {
     transform: translateX(0) rotate(0);
     opacity: 1;
+  }
+}
+
+/* Enhanced input styling */
+input[type="text"] {
+  padding: 0.7em 1.4em;
+  font-size: 1.1em;
+  font-family: inherit;
+  border: 2px solid #e2e8f0;
+  border-radius: 50px;
+  background-color: #fff;
+  color: #2d3748;
+  width: 250px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+}
+
+/* Submit button specific styling */
+/* Submit button specific styling */
+button[type="submit"],
+.submit-button {
+  background-color: #4f46e5;
+  color: white;
+  min-width: 100px;
+}
+
+button[type="submit"]:hover,
+.submit-button:nth-of-type(1):hover {
+  background-color: #4338ca;
+  border-color: #4338ca;
+}
+
+/* Layout for input and buttons */
+.input-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Dark mode adjustments for input */
+@media (prefers-color-scheme: dark) {
+  input[type="text"] {
+    background-color: #334155;
+    color: #e2e8f0;
+    border-color: #475569;
+  }
+
+  input[type="text"]:focus {
+    border-color: #818cf8;
   }
 }

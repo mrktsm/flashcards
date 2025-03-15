@@ -190,12 +190,6 @@ function App() {
         />
       </div>
       <div className="button-container">
-        <input
-          type="text"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <button onClick={handleSubmit}>Submit</button>
         <button
           onClick={() => changeCard("prev")}
           disabled={isAnimating}
@@ -204,14 +198,7 @@ function App() {
         >
           ←
         </button>
-        <button
-          onClick={() => !isAnimating && setIsFlipped(!isFlipped)}
-          disabled={isAnimating}
-          className={`flip-button ${isAnimating ? "disabled" : ""}`}
-          aria-label="Flip card"
-        >
-          Flip
-        </button>
+        <button onClick={shuffleCards}>Shuffle</button>
         <button
           onClick={() => changeCard("next")}
           disabled={isAnimating}
@@ -220,7 +207,17 @@ function App() {
         >
           →
         </button>
-        <button onClick={shuffleCards}>Shuffle</button>
+      </div>
+      <div className="input-container">
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="Enter your answer"
+        />
+        <button onClick={handleSubmit} className="submit-button">
+          Submit
+        </button>
       </div>
     </div>
   );
