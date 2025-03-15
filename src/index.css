@@ -254,3 +254,54 @@ body {
     background-color: #334155;
   }
 }
+
+.feedback-message {
+  position: absolute;
+  top: -125px; /* Adjust this value as needed */
+  left: 0;
+  right: 0;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+  z-index: 10; /* Ensure it's above other elements */
+}
+
+.feedback-message.visible {
+  opacity: 1;
+}
+
+.feedback-message.hidden {
+  opacity: 0;
+}
+
+.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.shuffle-animation {
+  animation: shuffle 0.6s ease;
+}
+
+@keyframes shuffle {
+  0% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(20px) rotate(5deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+}

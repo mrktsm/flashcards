@@ -1,6 +1,6 @@
 import "./App.css";
 import FlashCard from "./components/FlashCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const cards = [
   {
@@ -53,6 +53,14 @@ function App() {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [value, setValue] = useState("");
+  const [feedback, setFeedback] = useState(null);
+  const [feedbackVisible, setFeedbackVisible] = useState(false);
+  const feedbackTimeoutRef = useRef(null);
+  const [shuffledCards, setShuffledCards] = useState([...cards]);
+
+  useEffect(() => {
+    setShuffledCards([...cards]);
+  }, []);
 
   useEffect(() => {
     if (animationClass) {
@@ -71,6 +79,12 @@ function App() {
 
     setIsFlipped(false);
 
+    if (feedbackTimeoutRef.current) {
+      clearTimeout(feedbackTimeoutRef.current);
+    }
+    setFeedbackVisible(false);
+    setFeedback(null);
+
     setTimeout(() => {
       setAnimationClass(direction === "next" ? "slide-left" : "slide-right");
 
@@ -86,14 +100,90 @@ function App() {
     }, 300);
   };
 
+  const handleSubmit = () => {
+    // Clear any existing timeout
+    if (feedbackTimeoutRef.current) {
+      clearTimeout(feedbackTimeoutRef.current);
+    }
+
+    if (value.toLowerCase() === cards[currentCardIndex].back.toLowerCase()) {
+      setFeedback({ message: "Correct answer!", type: "success" });
+      setIsFlipped(true);
+    } else {
+      setFeedback({ message: "Incorrect answer!", type: "error" });
+    }
+
+    setFeedbackVisible(true);
+
+    // Set timeout to fade out
+    feedbackTimeoutRef.current = setTimeout(() => {
+      setFeedbackVisible(false);
+
+      setTimeout(() => {
+        setFeedback(null);
+      }, 500);
+    }, 2000);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (feedbackTimeoutRef.current) {
+        clearTimeout(feedbackTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Add this function to your component
+  const shuffleCards = () => {
+    if (isAnimating) return;
+
+    setIsAnimating(true);
+    setIsFlipped(false);
+
+    // Clear any feedback
+    if (feedbackTimeoutRef.current) {
+      clearTimeout(feedbackTimeoutRef.current);
+    }
+    setFeedbackVisible(false);
+    setFeedback(null);
+
+    // First, apply the slide animation
+    setAnimationClass("slide-right");
+
+    // After animation starts, prepare the new shuffled deck
+    setTimeout(() => {
+      // Create a copy of the cards
+      const shuffled = [...cards];
+
+      // Fisher-Yates shuffle algorithm
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      setShuffledCards(shuffled);
+
+      // Reset to the first card
+      setCurrentCardIndex(0);
+    }, 300);
+  };
+
   return (
     <div className="app-container">
       <div className="card-counter">
         Card {currentCardIndex + 1} of {cards.length}
       </div>
       <div className="card-container">
+        {feedback && (
+          <div
+            className={`feedback-message ${feedback.type} ${
+              feedbackVisible ? "visible" : "hidden"
+            }`}
+          >
+            {feedback.message}
+          </div>
+        )}
         <FlashCard
-          card={cards[currentCardIndex]}
+          card={shuffledCards[currentCardIndex]}
           isFlipped={isFlipped}
           onFlip={() => !isAnimating && setIsFlipped(!isFlipped)}
           animationClass={animationClass}
@@ -105,7 +195,7 @@ function App() {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <button>Submit</button>
+        <button onClick={handleSubmit}>Submit</button>
         <button
           onClick={() => changeCard("prev")}
           disabled={isAnimating}
@@ -130,6 +220,7 @@ function App() {
         >
           →
         </button>
+        <button onClick={shuffleCards}>Shuffle</button>
       </div>
     </div>
   );
