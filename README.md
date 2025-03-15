@@ -8,7 +8,7 @@ Time spent: **3.5** hours spent in total
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of the implemented features:
 
 <img src='https://github.com/user-attachments/assets/412e7dfe-7e37-40d8-b43b-7c7e05b15543' title='Video Walkthrough' width='100%' alt='Video Walkthrough' />
 
