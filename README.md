@@ -1,17 +1,16 @@
-# Web Development Project 2 - *Flashcards*
+# Web Development Project 3 - *Flashcards*
 
 Submitted by: **Marko Tsymbaliuk**
 
 This web app: **Flashcards is an interactive learning app built with React. It allows users to view and interact with flashcards, displaying one side of the card at a time, revealing the second side upon clicking, and offering random card navigation. The goal of this project was to practice and understand React fundamentals, including state management, event handling, and component rendering.**
 
-Time spent: **1.5** hours spent in total
+Time spent: **3.5** hours spent in total
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented required features:
+Here's a walkthrough of implemented user stories:
 
 <img src='https://github.com/user-attachments/assets/412e7dfe-7e37-40d8-b43b-7c7e05b15543' title='Video Walkthrough' width='100%' alt='Video Walkthrough' />
-
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with [ezgif.com](https://ezgif.com/)
@@ -24,21 +23,20 @@ GIF created with [ezgif.com](https://ezgif.com/)
 
 The following **required** functionality is completed:
 
-- [x] **The title of the card set and some information about it, such as a short description and the total number of cards are displayed**
-- [x] **A single card at a time is displayed, only showing one of the components of the information pair**
-- [x] **A list of card pairs is created**
-- [x] **Clicking on the card shows the corresponding component of the information pair**
-- [x] **Clicking the next button displays a random new card**
+- [x] **The user can enter their guess in a box before seeing the flipside of the card**
+- [x] **Clicking on a submit button shows visual feedback about whether the answer was correct or incorrect**
+- [x] **A back button is displayed on the card and can be used to return to the previous card in a set sequence**
+- [x] **A next button is displayed on the card and can be used to navigate to the next card in a set sequence**
 
 The following **optional** features are implemented:
 
-- [x] Cards have different visual styles such as color based on their category
+- [x] A shuffle button is used to randomize the order of the cards
+- [x] A user's answer may be counted as correct even when it is slightly different from the target answer
 
 The following **additional** features are implemented:
 
 * [x] Added a counter that tracks the number of cards viewed by the user.
 * [x] Created a smooth animation for card transitions, making it visually appealing when switching between cards.
-
 
 ## Notes
 
